@@ -82,8 +82,8 @@ for x in range(int(InputInfo[1]),int(InputInfo[2])-int(InputInfo[3]),-int(InputI
     in_temp.append(1/float(x))
     CalibFileName = str(x)+InputInfo[4]
     GrayScl = 2**int(InputInfo[5])-1
-    reader1 = png.Reader(CalibFileName)
-    reader2 = png.Reader(InputInfo[0]+InputInfo[4])
+    reader1 = png.Reader(filename='images/%s' %(CalibFileName))
+    reader2 = png.Reader(filename='images/%s' %(InputInfo[0]+InputInfo[4]))
     pngdata1 = reader1.read()
     pngdata2 = reader2.read()
     px_array1 = np.vstack(map(np.uint16,pngdata1[2]))
