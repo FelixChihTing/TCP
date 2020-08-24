@@ -78,8 +78,8 @@ temp = []
 in_temp = []
 caliImg =[]
 for x in range(int(InputInfo[1]),int(InputInfo[2])-int(InputInfo[3]),-int(InputInfo[3])):
-    temp.append(x)
-    in_temp.append(1/float(x))
+    temp.append(x+273)
+    in_temp.append(1/float(x+273))
     CalibFileName = str(x)+InputInfo[4]
     GrayScl = 2**int(InputInfo[5])-1
     reader1 = png.Reader(filename='images/%s' %(CalibFileName))
@@ -151,8 +151,8 @@ plt.plot([in_temp[0],in_temp[NumImg-1]],[float(in_temp[0])*c2[1]+c2[0],float(in_
 c2_planck = (1.98644*10**-25)/(1.3806*10**-23)  # c2=hc/k
 Lambda_eqv1 = (-c2_planck/c1[1])*10**9  # in nm
 Lambda_eqv2 = (-c2_planck/c2[1])*10**9  # in nm
-plt.text(0.001,-3.7,'Equivalent \u03BB for %s filter = %d nm' %(InputInfo[9], Lambda_eqv1),fontsize=12)
-plt.text(0.001,-3.9,'Equivalent \u03BB for %s filter = %d nm' %(InputInfo[10], Lambda_eqv2),fontsize=12)
+plt.text(0.00079,-3.7,'Equivalent \u03BB for %s filter = %d nm' %(InputInfo[9], Lambda_eqv1),fontsize=12)
+plt.text(0.00079,-3.9,'Equivalent \u03BB for %s filter = %d nm' %(InputInfo[10], Lambda_eqv2),fontsize=12)
 plt.legend(loc="upper right")
 plt.title('Instrument Calibration')
 plt.xlabel('1/T, 1/K')
